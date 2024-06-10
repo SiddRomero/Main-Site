@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Sidd's Date Site</title>
+  </head>
+  <body>
+    <img src="assets/date.png" alt="date?" class="header-img" />
+    <div class="container" id="container">
+      <img src="assets/erm-fingers.gif" alt="please" class="image-1" />
+      <img src="assets/oh-yay.gif" alt="yes" class="image-2 hide" />
+      <button class="btn btn-yes">Yes</button>
+      <button id="Yes">YesButton</button>
+      <button class="btn btn-no">No</button>
+    </div>
+    <script>
+      document.getElementById('YesButton').addEventListener('click', function() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'send_email.php', true);
+        xhr.onreadystatechange = function() {
+              if (xhr.readyState === XMLHttpRequest.DONE) {
+                  if (xhr.status === 200) {
+                    alert('Email sent successfully!');
+                  } else {
+                    alert('Failed to send email. Please try again later.');
+                  }
+              }
+          };
+          xhr.send();
+        });
+      </script>
+      <script
+      type="text/javascript"
+      src="//static.klaviyo.com/onsite/js/klaviyo.js?company_id=RNgcFu"
+      ></script>
+    <script src="main.js"></script>
+  </body>
+</html>
